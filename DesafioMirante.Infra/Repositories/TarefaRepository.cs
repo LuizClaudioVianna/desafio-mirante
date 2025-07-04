@@ -62,6 +62,20 @@ namespace DesafioMirante.Infra.Repositories
             return tarefa;
         }
 
+        public async Task<List<Tarefa>> ObterPorStatus(string status)
+        {
+            var tarefa = await _context.Tarefas.Where(s => s.Status.ToString().ToLower() == status.ToLower()).ToListAsync();
+            if (tarefa is null)
+                throw new InvalidOperationException($"Tarefa com Id {status} não encontrado.");
+
+            return tarefa;
+        }
+
+        public async Task<IEnumerable<Tarefa>> ObterPorDataVencimento(DateTime dataVencimento)
+        {
+            return await _context.Tarefas.Where(t => t.DataVencimento.Date == dataVencimento.Date).ToListAsync();
+        }
+
         public async Task<IEnumerable<Tarefa>> ObterTodos()
         {
             if (_context is not null && _context.Tarefas is not null)

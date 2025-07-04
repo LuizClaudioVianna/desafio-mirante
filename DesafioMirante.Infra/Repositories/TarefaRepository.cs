@@ -62,9 +62,9 @@ namespace DesafioMirante.Infra.Repositories
             return tarefa;
         }
 
-        public async Task<Tarefa> ObterPorStatus(string status)
+        public async Task<List<Tarefa>> ObterPorStatus(string status)
         {
-            var tarefa = await _context.Tarefas.FirstOrDefaultAsync(s => s.Status.ToString().ToLower() == status.ToLower());
+            var tarefa = await _context.Tarefas.Where(s => s.Status.ToString().ToLower() == status.ToLower()).ToListAsync();
             if (tarefa is null)
                 throw new InvalidOperationException($"Tarefa com Id {status} não encontrado.");
 

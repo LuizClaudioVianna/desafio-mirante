@@ -79,19 +79,15 @@ namespace DesafioMirante.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter tarefas por data!");
             }
         }
- 
+
 
         [HttpPost]
         public async Task<ActionResult> Create(Tarefa tarefa)
         {
             try
             {
-
                 await _tarefaRepository.Adicionar(tarefa);
-                return Ok(new
-                {
-                    tarefa = tarefa
-                });
+                return Ok(tarefa);
             }
             catch
             {

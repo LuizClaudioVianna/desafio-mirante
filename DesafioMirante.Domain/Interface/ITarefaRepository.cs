@@ -6,7 +6,7 @@ namespace DesafioMirante.Domain.Interface
     {
         Task<IEnumerable<Tarefa>> ObterTodos();
         Task<Tarefa> ObterPorId(long id);
-        Task<Tarefa> ObterPorStatus(string status);
+        Task<List<Tarefa>> ObterPorStatus(string status);
         Task<Tarefa> Adicionar(Tarefa tarefa);
         Task Deletar(Tarefa tarefa);
         Task Atualizar(Tarefa tarefa);

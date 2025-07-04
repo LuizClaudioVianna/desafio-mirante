@@ -35,18 +35,51 @@ namespace DesafioMirante.API.Controllers
         [HttpGet("{id:long}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IAsyncEnumerable<Tarefa>>> GetEventoPorId(long id)
+        public async Task<ActionResult<IAsyncEnumerable<Tarefa>>> GetPorId(long id)
         {
             try
             {
-                var evento = await _tarefaRepository.ObterPorId(id);
-                return Ok(evento);
+                var tarefa = await _tarefaRepository.ObterPorId(id);
+                return Ok(tarefa);
             }
             catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter tarefa!");
             }
         }
+
+        [HttpGet("obter-por-status")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<IAsyncEnumerable<Tarefa>>> GetPorStatus(string status)
+        {
+            try
+            {
+                var tarefa = await _tarefaRepository.ObterPorStatus(status);
+                return Ok(tarefa);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter tarefa!");
+            }
+        }
+
+        [HttpGet("obter-por-data-vencimento")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<IEnumerable<Tarefa>>> GetPorDataVencimento([FromQuery] DateTime data)
+        {
+            try
+            {
+                var tarefas = await _tarefaRepository.ObterPorDataVencimento(data);
+                return Ok(tarefas);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter tarefas por data!");
+            }
+        }
+ 
 
         [HttpPost]
         public async Task<ActionResult> Create(Tarefa tarefa)

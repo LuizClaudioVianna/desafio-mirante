@@ -23,3 +23,8 @@ Projeto API (DesafioMirante.API)
   * DELETE - api/Tarefa/{id} - Permitindo a remoção;
   * GET - /api/Tarefa/obter-por-status?status=Pendente' - Permitindo a filtragem por status 'Pendente';
   * GET - /api/Tarefa/obter-por-data-vencimento?data=2025-08-03' - Permitindo a filtragem por data de vencimento '2025-08-03';
+
+#### Execução do container
+  * Construção do dockerfile e do .dockerignore, seguindo as orientações do ChatGPT
+  * Execução da linha de código no terminal do Docker Desktop: docker run -d -p 5000:8080 --name desafio-mirante-api -e ASPNETCORE_ENVIRONMENT=Development desafio-mirante-api
+  * Ir no navegador e executar: http://localhost:5000/swagger/index.html

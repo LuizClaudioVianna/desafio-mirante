@@ -2,9 +2,9 @@
 Desafio desenvolvido para atender compôr equipe da empresa
 Projeto API (DesafioMirante.API)
   Pacotes instalados:
-    Microsoft.EntityFrameworkCore.InMemory -- que é um provedor de Entity Framework Core que usa um banco de dados em memória;
-    Microsoft.Extensions.Http -- é um pacote do .NET que fornece extensões para configurar e usar HttpClient de forma robusta e eficiente, integrando com o sistema de injeção de dependência (DI) da ASP.NET Core;
-    Swashbuckle.AspNetCore -- é um pacote extremamente útil no ecossistema ASP.NET Core, pois ele gera automaticamente documentação interativa da sua API REST no formato Swagger/OpenAPI.
+    * Microsoft.EntityFrameworkCore.InMemory -- que é um provedor de Entity Framework Core que usa um banco de dados em memória;
+    * Microsoft.Extensions.Http -- é um pacote do .NET que fornece extensões para configurar e usar HttpClient de forma robusta e eficiente, integrando com o sistema de injeção de dependência (DI) da ASP.NET Core;
+    * Swashbuckle.AspNetCore -- é um pacote extremamente útil no ecossistema ASP.NET Core, pois ele gera automaticamente documentação interativa da sua API REST no formato Swagger/OpenAPI.
 
 #### Projeto DesafioMirante.Domain
   Pasta de Entidades - Para as entidades do sistema

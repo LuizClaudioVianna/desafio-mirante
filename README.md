@@ -1,4 +1,4 @@
-# desafio-mirante
+# Desafio Mirante
 Desafio desenvolvido para atender compôr equipe da empresa
 Projeto API (DesafioMirante.API)
   #### Pacotes instalados:

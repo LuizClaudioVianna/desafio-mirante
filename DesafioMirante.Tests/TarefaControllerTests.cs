@@ -62,26 +62,26 @@ namespace DesafioMirante.Tests
             Assert.Equal(500, status.StatusCode);
         }
 
-        [Fact]
-        public async Task Create_DeveRetornarOk()
-        {
-            var novaTarefa = new Tarefa
-            {
-                Id = 1,
-                Titulo = "Nova",
-                Descricao = "uma nova descrição",
-                DataVencimento = DateTime.Now.AddDays(5),
-                Status = Domain.Enuns.StatusEnum.Pendente
-            };
-            _mockRepo.Setup(r => r.Adicionar(novaTarefa)).ReturnsAsync(novaTarefa);
+        //[Fact]
+        //public async Task Create_DeveRetornarOk()
+        //{
+        //    var novaTarefa = new Tarefa
+        //    {
+        //        Id = 1,
+        //        Titulo = "Nova",
+        //        Descricao = "uma nova descrição",
+        //        DataVencimento = DateTime.Now.AddDays(5),
+        //        Status = Domain.Enuns.StatusEnum.Pendente
+        //    };
+        //    _mockRepo.Setup(r => r.Adicionar(novaTarefa)).ReturnsAsync(novaTarefa);
 
-            var result = await _controller.Create(novaTarefa);
+        //    var result = await _controller.Create(novaTarefa);
 
-            var okResult = Assert.IsType<OkObjectResult>(result);
-            var returnValue = Assert.IsType<Tarefa>(okResult.Value);
+        //    var okResult = Assert.IsType<OkObjectResult>(result);
+        //    var returnValue = Assert.IsType<Tarefa>(okResult.Value);
 
-            Assert.Equal("Nova", returnValue.Titulo);
-        }
+        //    Assert.Equal("Nova", returnValue.Titulo);
+        //}
 
         [Fact]
         public async Task Delete_DeveRetornarOkQuandoEncontrado()

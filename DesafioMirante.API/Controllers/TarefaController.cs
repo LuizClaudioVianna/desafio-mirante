@@ -86,8 +86,14 @@ namespace DesafioMirante.API.Controllers
         {
             try
             {
-                await _tarefaRepository.Adicionar(tarefa);
-                return Ok(tarefa);
+                if (tarefa.Titulo.Length < 10)
+                {
+                    await _tarefaRepository.Adicionar(tarefa);
+                    return Ok(tarefa);
+                }
+                return StatusCode(StatusCodes.Status500InternalServerError, "Título da tarefa precisar ser menor que 10 caracteres!");
+
+                
             }
             catch
             {
